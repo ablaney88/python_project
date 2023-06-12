@@ -5,7 +5,7 @@ CREATE TABLE manufacturers (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255),
     description VARCHAR(255),
-    year_founded INT
+    year_founded VARCHAR(255)
 
 );
 
@@ -13,7 +13,7 @@ CREATE TABLE weapons (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255),
     description VARCHAR(255),
-    weight INT,
+    weight VARCHAR(255),
     material VARCHAR(255),
     cost_to_buy INT,
     cost_to_sell INT,
