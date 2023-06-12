@@ -19,7 +19,7 @@ def select_all():
 
     sql = "SELECT * FROM weapons"
     results = run_sql(sql)
-
+    # print(results)
     for row in results:
         manufacturer = manufacturer_repository.select(row['manufacturer_id'])
         weapon = Weapon(row['name'],
@@ -30,6 +30,8 @@ def select_all():
                         row['cost_to_buy'],
                         row['cost_to_sell'],
                         row['id'])
+        # print(weapon)
+        # print(weapon.name)
         weapons.append(weapon)
 
     return weapons
