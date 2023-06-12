@@ -2,6 +2,32 @@
 
 {% block content %}
 
+{% for weapon in all_weapons %}
 
+  <div class="weapon">
+    <div>
+      {{weapon.manufacturer.name}}
+      <div>
+
+        <a href="/weapons/{{ weapon.id }}">{{weapon.description}}</a>
+
+       
+        <p>{{weapon.weight}}kg</p>
+        <p>{{weapon.material}}</p>
+        <p>£{{weapon.cost_to_buy}}</p>
+        <p>£{{weapon.cost_to_sell}}</p>
+      </div>
+      <div class="buttons">
+
+        <form class="delete-form" action="/weapons/{{ weapon.id }}/delete" method="POST">
+            <button type="button">Delete</button>
+        </form>
+
+  
+      </div>
+    </div>
+  </div>
+
+{% endfor %}
 
 {% endblock %}

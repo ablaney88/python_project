@@ -15,8 +15,8 @@ manufacturer_repository.save(manufacturer2)
 
 manufacturer_repository.select_all()
 
-weapon1 = Weapon("Boltgun", "Big gun kills xenos", 35, "Steel", "£300", "£500", manufacturer1)
+weapon1 = Weapon("Boltgun", "Big gun kills xenos", 35, "Steel", 300, 500, manufacturer1)
 weapon_repository.save(weapon1)
 
-weapon2 = Weapon("Nasir", "Sauron's worst nightmare", 2, "Steel", "£1000", "£3000", manufacturer2)
+weapon2 = Weapon("Nasir", "Sauron's worst nightmare", 2, "Steel", 1000, 3000, manufacturer2)
 weapon_repository.save(weapon2)

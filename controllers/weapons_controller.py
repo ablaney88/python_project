@@ -5,6 +5,8 @@ from models.weapon import Weapon
 
 weapons_blueprint = Blueprint("weapons", __name__)
 
+# nav bar
+
 @weapons_blueprint.route("/")
 def index():
     return render_template("index.html")
