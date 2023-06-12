@@ -13,9 +13,9 @@ CREATE TABLE weapons (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255),
     description VARCHAR(255),
-    weight VARCHAR(255),
+    weight INT,
     material VARCHAR(255),
-    cost_to_buy INT,
-    cost_to_sell INT,
+    cost_to_buy VARCHAR(255),
+    cost_to_sell VARCHAR(255),
     weapon_id INT NOT NULL REFERENCES weapons(id) ON DELETE CASCADE
 );

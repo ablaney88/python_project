@@ -5,6 +5,18 @@ from models.weapon import Weapon
 
 weapons_blueprint = Blueprint("weapons", __name__)
 
+@weapons_blueprint.route("/")
+def index():
+    return render_template("index.html")
+
+@weapons_blueprint.route("/about")
+def about():
+    return render_template("/about.html")
+
+@weapons_blueprint.route("/contact")
+def contact():
+    return render_template("/contact.html")
+
 # GET '/weapons'
 
 @weapons_blueprint.route("/weapons")
