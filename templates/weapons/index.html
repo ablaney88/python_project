@@ -6,12 +6,16 @@
 
   <div class="weapon">
     <div>
-      {{weapon.manufacturer.name}}
+       {{weapon.manufacturer.name}}
+       <form class="edit-form" action="/manufacturers/{{ manufacturer.id }}/edit" method="GET">
+        <button type="button">Edit All</button>
+      </form>
       <div>
-
-        <a href="/weapons/{{ weapon.id }}">{{weapon.description}}</a>
-
-       
+        <p>{{weapon.name}}</p>
+        <form class="edit-form" action="/weapons/{{ weapon.id }}/edit_only_weapon" method="GET">
+          <button type="button">Edit Weapon</button>
+        </form>
+        <p>{{weapon.description}}</p>
         <p>{{weapon.weight}}kg</p>
         <p>{{weapon.material}}</p>
         <p>£{{weapon.cost_to_buy}}</p>
@@ -21,6 +25,9 @@
 
         <form class="delete-form" action="/weapons/{{ weapon.id }}/delete" method="POST">
             <button type="button">Delete</button>
+        </form>
+        <form class="edit-form" action="/weapons/{{ weapon.id }}/edit" method="GET">
+          <button type="button">Edit All</button>
         </form>
 
   

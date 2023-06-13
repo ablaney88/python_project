@@ -11,22 +11,16 @@ weapons_blueprint = Blueprint("weapons", __name__)
 def index():
     return render_template("index.html")
 
-@weapons_blueprint.route("/about")
-def about():
-    return render_template("/about.html")
-
-@weapons_blueprint.route("/contact")
-def contact():
-    return render_template("/contact.html")
+@weapons_blueprint.route("/new_manufacturer")
+def new_manufacturer():
+    return render_template("/new_manufacturer.html")
 
 # GET '/weapons'
 
 @weapons_blueprint.route("/weapons")
 def weapons():
-    # print("triggered")
     weapons = weapon_repository.select_all()
-    # print(weapons[0].name)
-    # return render_template("weapons/abc.html")
+
     return render_template("weapons/index.html", all_weapons = weapons)
 
 # NEW. GET '/weapons/new'
@@ -36,7 +30,7 @@ def new_weapon():
     manufacturers = manufacturer_repository.select_all()
     return render_template("weapons/new.html", all_manufacturers = manufacturers)
 
-# CREATE. PST '/weapons'
+# CREATE. POST '/weapons'
 
 @weapons_blueprint.route("/weapons", methods=["POST"])
 def create_weapon():
@@ -46,10 +40,11 @@ def create_weapon():
     material = request.form["material"]
     cost_to_buy = request.form["cost_to_buy"]
     cost_to_sell = request.form["cost_to_sell"]
+    quantity = request.form["quantity"]
     manufacturer_id = request.form["manufacturer_id"]
 
     manufacturer = manufacturer_repository.select(manufacturer_id)
-    weapon = Weapon(name, description, weight, material, cost_to_buy, cost_to_sell, manufacturer)
+    weapon = Weapon(name, description, weight, material, cost_to_buy, cost_to_sell, quantity, manufacturer)
 
     weapon_repository.save(weapon)
     return redirect('/weapons')
@@ -57,10 +52,18 @@ def create_weapon():
 # EDIT. GET'/weapons/<id>/edit'
 
 @weapons_blueprint.route("/weapons/<id>/edit", methods=['GET'])
-def edit_task(id):
+def edit_weapon(id):
     weapon = weapon_repository.select(id)
     manufacturers = manufacturer_repository.select_all()
     return render_template('weapons/edit.html', weapon = weapon, all_manufacturers = manufacturers)
+
+# EDIT only weapon. GET'/weapons/<id>/edit_only_weapon
+
+@weapons_blueprint.route("/weapons/<id>/edit_only_weapon", methods=['GET'])
+def edit_only_weapon(id):
+    weapon = weapon_repository.select(id)
+    weapons = weapon_repository.select_all()
+    return render_template('weapons/edit_only_weapon.html', weapon = weapon, all_weapons = weapons)
 
 # UPDATE. PUT '/weapons/<id>'
 
@@ -72,10 +75,11 @@ def update_weapon(id):
     material = request.form["material"]
     cost_to_buy = request.form["cost_to_buy"]
     cost_to_sell = request.form["cost_to_sell"]
+    quantity = request.form["quantity"]
     manufacturer_id = request.form["manufacturer_id"]
 
     manufacturer = manufacturer_repository.select(manufacturer_id)
-    weapon = Weapon(name, description, weight, material, cost_to_buy, cost_to_sell, manufacturer)
+    weapon = Weapon(name, description, weight, material, cost_to_buy, cost_to_sell, quantity, manufacturer, id)
 
     weapon_repository.update(weapon)
     return redirect('/weapons')
@@ -86,4 +90,6 @@ def update_weapon(id):
 def delete_weapon(id):
     weapon_repository.delete(id)
     return redirect('/weapons')
+
+
 

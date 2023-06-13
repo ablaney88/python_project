@@ -17,12 +17,13 @@ CREATE TABLE weapons (
     material VARCHAR(255),
     cost_to_buy INT,
     cost_to_sell INT,
+    quantity INT,
     manufacturer_id INT NOT NULL REFERENCES manufacturers(id) ON DELETE CASCADE
 );
 
-INSERT INTO manufacturers (name, description, year_founded) VALUES ("Adeptus Mechanicus", "Producer of arms for the Imperium", "M25");
-INSERT INTO manufacturers (name, description, year_founded) VALUES ("Telchar", "Dwarven smith", "First Age");
+INSERT INTO manufacturers (name, description, year_founded) VALUES ('Adeptus Mechanicus', 'Producer of arms for the Imperium', 'M25');
+INSERT INTO manufacturers (name, description, year_founded) VALUES ('Telchar', 'Dwarven smith', 'First Age');
 
-INSERT INTO weapons (name, description, weight, material, cost_to_buy, cost_to_sell, manufacturer_id) VALUES ("Boltgun", "Big gun kills xenos", 35, "Steel", 300, 500);
+INSERT INTO weapons (name, description, weight, material, cost_to_buy, cost_to_sell, manufacturer_id) VALUES ('Boltgun', 'Big gun for killing xenos', 35, 'Steel', 300, 500, 10);
 
-INSERT INTO weapons (name, description, weight, material, cost_to_buy, cost_to_sell, manufacturer_id) VALUES ("Nasir", "Sauron's worst nightmare", 2, "Steel", 1000, 3000);
+INSERT INTO weapons (name, description, weight, material, cost_to_buy, cost_to_sell, manufacturer_id) VALUES ('Nasir', 'Saurons worst nightmare', 2, 'Steel', 1000, 3000, 1);
