@@ -2,6 +2,24 @@
 
 {% block content %}
 
+<form action="/manufacturers/{{manufacturer.id}}" method="post">
+    <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" value="{{manufacturer.name}}" required autofocus>
+      </div>
+    <div>
+      <label for="description">Description:</label>
+      <input type="text" id="description" name="description" value="{{manufacturer.description}}" required autofocus>
+    </div>
+  
+    <div>
+      <label for="year_founded">Year Founded:</label>
+      <input type="number" id="year_founded" name="year_founded" value="{{manufacturer.year_founded}}" required>
+    </div>
+
+    <button type="submit">Update Manufacturer</button>
+  
+  </form>
 
 
 {% endblock %}

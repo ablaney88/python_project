@@ -2,6 +2,25 @@
 
 {% block content %}
 
+{% for manufacturer in all_manufacturers %}
 
+  <div>
+       <p>{{manufacturer.name}}</p>
+        <p>{{manufacturer.description}}</p>
+        <p>{{manufacturer.year_founded}}kg</p>
+      
+      <div class="buttons">
+
+        <form class="edit-form" action="/manufacturers/{{ manufacturer.id }}/edit" method="GET">
+            <button type="button">Edit Manufacturer</button>
+          </form>
+
+        <form class="delete-form" action="/manufacturers/{{ manufacturer.id }}/delete" method="POST">
+            <button type="button">Delete Manufacturer</button>
+        </form>
+        </div>
+    </div>
+
+{% endfor %}
 
 {% endblock %}
