@@ -46,3 +46,11 @@ def update_manufacturer(id):
 
     manufacturer_repository.update(manufacturer)
     return redirect('/manufacturers')
+
+# DELETE manufacturer
+
+@manufacturers_blueprint.route("/manufacturers/<id>/delete", methods=['POST'])
+def delete_manufacturer(id):
+    weapon_repository.delete(id)
+    return redirect('/manufacturers')
+
