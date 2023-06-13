@@ -6,8 +6,8 @@ from models.weapon import Weapon
 import repositories.manufacturer_repository as manufacturer_repository
 
 def save(weapon):
-    sql = "INSErT INTO weapons (name, description, weight, material, cost_to_buy, cost_to_sell, manufacturer_id) VALUES (%s, %s, %s, %s, %s, %s, %s) RETURNING *"
-    values = [weapon.name, weapon.desciption, weapon.weight, weapon.material, weapon.cost_to_buy, weapon.cost_to_sell, weapon.manufacturer.id]
+    sql = "INSERT INTO weapons (name, description, weight, material, cost_to_buy, cost_to_sell, quantity, manufacturer_id) VALUES (%s, %s, %s, %s, %s, %s, %s, %s) RETURNING *"
+    values = [weapon.name, weapon.description, weapon.weight, weapon.material, weapon.cost_to_buy, weapon.cost_to_sell, weapon.quantity, weapon.manufacturer.id]
     results = run_sql(sql, values)
     id = results[0]['id']
     weapon.id = id
@@ -29,6 +29,7 @@ def select_all():
                         row['material'],
                         row['cost_to_buy'],
                         row['cost_to_sell'],
+                        row['quantity'],
                         row['id'])
         # print(weapon)
         # print(weapon.name)
@@ -51,6 +52,7 @@ def select(id):
                         result['material'],
                         result['cost_to_buy'],
                         result['cost_to_sell'],
+                        result['quantity'],
                         result['id'])
     
     return weapon
@@ -65,8 +67,8 @@ def delete(id):
     run_sql(sql, values)
 
 def update(weapon):
-    sql = "UPDATE weapons SET (name, description, weight, material, cost_to_buy, cost_to_sell, manufacturer_id) = (%s, %s, %s, %s, %s, %s, %s) WHERE id = %s"
-    values = [weapon.name, weapon.desciption, weapon.weight, weapon.material, weapon.cost_to_buy, weapon.cost_to_sell, weapon.manufacturer.id]
+    sql = "UPDATE weapons SET (name, description, weight, material, cost_to_buy, cost_to_sell, quantity, manufacturer_id) = (%s, %s, %s, %s, %s, %s, %s) WHERE id = %s"
+    values = [weapon.name, weapon.description, weapon.weight, weapon.material, weapon.cost_to_buy, weapon.cost_to_sell, weapon.quantity, weapon.manufacturer.id]
     run_sql(sql, values)
 
 def weapons_from_manufacturer(manufacturer):
@@ -84,6 +86,7 @@ def weapons_from_manufacturer(manufacturer):
                         row['material'],
                         row['cost_to_buy'],
                         row['cost_to_sell'],
+                        row['quantity'],
                         row['id'])
         weapons.append(weapon)
 

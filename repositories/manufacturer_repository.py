@@ -4,7 +4,7 @@ from models.manufacturer import Manufacturer
 from models.weapon import Weapon
 
 def save(manufacturer):
-    sql = "INSERT INTO manufacturer (name, description, year_founded) VALUES (%s, %s, %s) RETURNING *"
+    sql = "INSERT INTO manufacturers (name, description, year_founded) VALUES (%s, %s, %s) RETURNING *"
     values = [manufacturer.name, manufacturer.description, manufacturer.year_founded]
     results = run_sql(sql, values)
     id = results[0]['id']
@@ -45,7 +45,7 @@ def delete_all():
     sql = "DELETE FROM manufacturers"
     run_sql(sql)
 
-def dlete(id):
+def delete(id):
     sql = "DELETE FROM manufacturers WHERE id = %s"
     values = [id]
     run_sql(sql, values)
