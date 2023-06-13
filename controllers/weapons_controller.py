@@ -20,7 +20,7 @@ def new_manufacturer():
 @weapons_blueprint.route("/weapons")
 def weapons():
     weapons = weapon_repository.select_all()
-
+    print(weapons)
     return render_template("weapons/index.html", all_weapons = weapons)
 
 # NEW. GET '/weapons/new'
