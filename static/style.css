@@ -74,6 +74,18 @@ ul {
     background-color: white;
 }
 
+.low-stock {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    border: 1px solid black;
+    padding: 20px;
+    align-self: flex-start;
+    overflow-wrap: break-word;
+    width: 400px;
+    background-color: white;
+}
+
 .delete-button{
     border-style: none;
     padding: 10px;

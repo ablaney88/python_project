@@ -34,7 +34,7 @@ weapon_repository.save(weapon3)
 weapon4 = Weapon("Thunder Hammer", manufacturer4, "Hammer go smash", 150, "Steel", 1500, 4000, 10)
 weapon_repository.save(weapon4)
 
-weapon5 = Weapon("Plasma Pistol", manufacturer5, "Melt youre enemies", 6, "Steel", 800, 1400, 25)
+weapon5 = Weapon("Plasma Pistol", manufacturer5, "Melt your enemies", 6, "Steel", 800, 1400, 25)
 weapon_repository.save(weapon5)
 
 # weapon1.name ="abc"
