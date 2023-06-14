@@ -2,53 +2,56 @@
 
 {% block content %}
 
-<form action="/weapons/{{weapon.id}}" method="post">
-
-    <div>
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" value="{{weapon.name}}" required autofocus>
-      </div>
-    <div>
-      <label for="description">Description:</label>
-      <input type="text" id="description" name="description" value="{{weapon.description}}" required autofocus>
-    </div>
+<div class="container">
+  <form action="/weapons/{{weapon.id}}" method="post" class="form-container">
   
-    <div>
-      <label for="weight">Weight:</label>
-      <input type="number" id="weight" name="weight" value="{{weapon.weight}}" required>
-    </div>
-
-    <div>
-        <label for="material">Material:</label>
-        <input type="text" id="material" name="material" value="{{weapon.material}}" required>
-      </div>
+      <div>
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" value="{{weapon.name}}" required autofocus>
+        </div>
 
       <div>
-        <label for="cost_to_buy">Cost To Buy:</label>
-        <input type="number" id="cost_to_buy" name="cost_to_buy" value="{{weapon.cost_to_buy}}" required>
+        <label for="description">Description:</label>
+        <input type="text" id="description" name="description" value="{{weapon.description}}" required autofocus>
       </div>
-
-      <div>
-        <label for="cost_to_sell">Cost To Sell:</label>
-        <input type="number" id="cost_to_sell" name="cost_to_sell" value="{{weapon.cost_to_sell}}" required>
-      </div>
-
-      <div>
-        <label for="quantity">Quantity:</label>
-        <input type="number" id="quantity" name="quantity" value="{{weapon.quantity}}" required>
-      </div>
-
-      <div>
-        <label for="manufacturer_id">Manufacturer ID:</label>
-        <select name="manufacturer_id">
-          <option value="{{weapon.manufacturer.id}}">{{weapon.manufacturer.name}}</option>
-        </select>
-      </div>
-
   
-    <button type="submit">Update Weapon</button>
+      <div>
+        <label for="weight">Weight:</label>
+        <input type="number" id="weight" name="weight" value="{{weapon.weight}}" required>
+      </div>
   
-  </form>
+      <div>
+          <label for="material">Material:</label>
+          <input type="text" id="material" name="material" value="{{weapon.material}}" required>
+        </div>
+  
+        <div>
+          <label for="cost_to_buy">Cost To Buy:</label>
+          <input type="number" id="cost_to_buy" name="cost_to_buy" value="{{weapon.cost_to_buy}}" required>
+        </div>
+  
+        <div>
+          <label for="cost_to_sell">Cost To Sell:</label>
+          <input type="number" id="cost_to_sell" name="cost_to_sell" value="{{weapon.cost_to_sell}}" required>
+        </div>
+  
+        <div>
+          <label for="quantity">Quantity:</label>
+          <input type="number" id="quantity" name="quantity" value="{{weapon.quantity}}" required>
+        </div>
+  
+        <div>
+          <label for="manufacturer_id">Manufacturer ID:</label>
+          <select name="manufacturer_id">
+            <option value="{{weapon.manufacturer.id}}">{{weapon.manufacturer.name}}</option>
+          </select>
+        </div>
+  
+  
+      <button type="submit" class="update-button">Update Weapon</button>
+  
+    </form>
+</div>
 
 
 {% endblock %}

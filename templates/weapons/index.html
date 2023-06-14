@@ -4,36 +4,36 @@
 
 {% for weapon in all_weapons %}
 
-  <div class="weapon">
-    <div>
-       {{weapon.manufacturer.name}}
-       <form class="edit-form" action="/manufacturers/{{ weapon.manufacturer.id }}/edit" method="GET">
-        <button type="submit">Edit Manufacturer</button>
-      </form>
-      <div>
-        <p>{{weapon.name}}</p>
+  <div class="container">
+    <div class="info-container">
+         Manufacturer: {{weapon.manufacturer.name}}
+         <form class="edit-form" action="/manufacturers/{{ weapon.manufacturer.id }}/edit" method="GET">
+          <button type="submit" class="edit-button">Edit Manufacturer</button>
+               </form>
+
+        <p>Name: {{weapon.name}}</p>
         <form class="edit-form" action="/weapons/{{ weapon.id }}/edit_only_weapon" method="GET">
-          <button type="submit">Edit Weapon</button>
+          <button type="submit" class="edit-button">Edit Weapon</button>
         </form>
-        <p>{{weapon.description}}</p>
-        <p>{{weapon.weight}}kg</p>
-        <p>{{weapon.material}}</p>
-        <p>£{{weapon.cost_to_buy}}</p>
-        <p>£{{weapon.cost_to_sell}}</p>
-        <p>{{weapon.quantity}}</p>
-      </div>
-      <div class="buttons">
+
+        <p>Description: {{weapon.description}}</p>
+        <p>Weight: {{weapon.weight}}kg</p>
+        <p>Material: {{weapon.material}}</p>
+        <p>Buy Cost: £{{weapon.cost_to_buy}}</p>
+        <p>Sell Cost: £{{weapon.cost_to_sell}}</p>
+        <p>Quantity: {{weapon.quantity}}</p>
+
+
 
         <form class="delete-form" action="/weapons/{{ weapon.id }}/delete" method="POST">
-            <button type="submit">Delete</button>
+            <button type="submit" class="delete-button">Delete</button>
         </form>
         <!-- <form class="edit-form" action="/weapons/{{ weapon.id }}/edit" method="GET">
           <button type="submit">Edit All</button>
         </form> -->
 
-  
       </div>
-    </div>
+
   </div>
 
 {% endfor %}

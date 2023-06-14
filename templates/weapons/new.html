@@ -2,54 +2,56 @@
 
 {% block content %}
 
-<form action="/weapons" method="post">
-
-    <div>
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" value="" required autofocus>
-      </div>
-      <div>
-        <label for="manufacturer">Manufacturer:</label>
-        <select id="manufacturer" name="manufacturer_id">
-            {% for manufacturer in all_manufacturers %}
-            <option value="{{manufacturer.id}}">{{manufacturer.name}}</option>
-            {% endfor %}
-          </select>
-      </div>
-    <div>
-      <label for="description">Description:</label>
-      <input type="text" id="description" name="description" value="" required autofocus>
-    </div>
+<div class="container">
+  <form action="/weapons" method="post" class="form-container">
   
-    <div>
-      <label for="weight">Weight:</label>
-      <input type="number" id="weight" name="weight" value="" required>
-    </div>
-
-    <div>
-        <label for="material">Material:</label>
-        <input type="text" id="material" name="material" value="" required>
-      </div>
-
       <div>
-        <label for="cost_to_buy">Cost To Buy:</label>
-        <input type="number" id="cost_to_buy" name="cost_to_buy" value="" required>
-      </div>
-
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" value="" required autofocus>
+        </div>
+        <div>
+          <label for="manufacturer">Manufacturer:</label>
+          <select id="manufacturer" name="manufacturer_id">
+              {% for manufacturer in all_manufacturers %}
+              <option value="{{manufacturer.id}}">{{manufacturer.name}}</option>
+              {% endfor %}
+            </select>
+        </div>
       <div>
-        <label for="cost_to_sell">Cost To Sell:</label>
-        <input type="number" id="cost_to_sell" name="cost_to_sell" value="" required>
+        <label for="description">Description:</label>
+        <input type="text" id="description" name="description" value="" required autofocus>
       </div>
-
-      <div>
-        <label for="quantity">Quantity:</label>
-        <input type="number" id="quantity" name="quantity" value="" required>
-      </div>
-
   
-    <button type="submit">Update Weapon</button>
+      <div>
+        <label for="weight">Weight:</label>
+        <input type="number" id="weight" name="weight" value="" required>
+      </div>
   
-  </form>
+      <div>
+          <label for="material">Material:</label>
+          <input type="text" id="material" name="material" value="" required>
+        </div>
+  
+        <div>
+          <label for="cost_to_buy">Cost To Buy:</label>
+          <input type="number" id="cost_to_buy" name="cost_to_buy" value="" required>
+        </div>
+  
+        <div>
+          <label for="cost_to_sell">Cost To Sell:</label>
+          <input type="number" id="cost_to_sell" name="cost_to_sell" value="" required>
+        </div>
+  
+        <div>
+          <label for="quantity">Quantity:</label>
+          <input type="number" id="quantity" name="quantity" value="" required>
+        </div>
+  
+  
+      <button type="submit" class="update-button">Add Weapon</button>
+  
+    </form>
+</div>
 
 
 {% endblock %}
