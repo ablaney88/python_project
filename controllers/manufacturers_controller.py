@@ -24,11 +24,11 @@ def edit_manufacturer(id):
 
 # Create manufacturer
 
-@manufacturers_blueprint.route("/manufacturers/new", methods=["POST"])
+@manufacturers_blueprint.route("/manufacturers", methods=["POST"])
 def create_manufacturer():
     name = request.form["name"]
     description = request.form["description"]
-    year_founded = request.form["year founded"]
+    year_founded = request.form["year_founded"]
  
     manufacturer = Manufacturer(name, description, year_founded)
 
