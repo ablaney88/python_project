@@ -2,6 +2,59 @@
 
 {% block content %}
 
+<form action="/weapons" method="post">
+
+    <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" value="" required autofocus>
+      </div>
+      <div>
+        <label for="manufacturer">Manufacturer:</label>
+        <select id="manufacturer" name="name">
+            <option value="{{manufacturer.id}}">{{manufacturer.name}}</option>
+          </select>
+      </div>
+    <div>
+      <label for="description">Description:</label>
+      <input type="text" id="description" name="description" value="" required autofocus>
+    </div>
+  
+    <div>
+      <label for="weight">Weight:</label>
+      <input type="number" id="weight" name="weight" value="" required>
+    </div>
+
+    <div>
+        <label for="material">Material:</label>
+        <input type="text" id="material" name="material" value="" required>
+      </div>
+
+      <div>
+        <label for="cost_to_buy">Cost To Buy:</label>
+        <input type="number" id="cost_to_buy" name="cost_to_buy" value="" required>
+      </div>
+
+      <div>
+        <label for="cost_to_sell">Cost To Sell:</label>
+        <input type="number" id="cost_to_sell" name="cost_to_sell" value="" required>
+      </div>
+
+      <div>
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" name="quantity" value="" required>
+      </div>
+
+      <div>
+        <label for="manufacturer_id">Manufacturer ID:</label>
+        <select name="manufacturer_id">
+          <option value="{{weapon.manufacturer.id}}">{{weapon.manufacturer.name}}</option>
+        </select>
+      </div>
+
+  
+    <button type="submit">Update Weapon</button>
+  
+  </form>
 
 
 {% endblock %}

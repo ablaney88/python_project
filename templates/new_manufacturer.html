@@ -2,24 +2,26 @@
 
 {% block content %}
 
-<form action="/manufacturers" methods="POST">
+<form action="/manufacturers" method="POST">
     <div>
         <label for="name">Name:</label>
-        <input type="text" id="name" placeholder="Name" value="{{manufacturer.name}}" required>
+        <input type="text" name="name" id="name" placeholder="Name" value="" required>
     </div>
 
     <div>
         <label for="description">Description:</label>
-        <input type="text" id="description" placeholder="Description" value="{{manufacturer.description}}" required>
+        <input type="text" name="description" id="description" placeholder="Description" value="" required>
     </div>
 
     <div>
         <label for="year_founded">Year Founded:</label>
-        <input type="text" id="year_founded" placeholder="Year Founded" value="{{manufacturer.year_founded}}" required>
+        <input type="text" name="year_founded" id="year_founded" placeholder="Year Founded" value="" required>
     </div>
 
     <button type="submit">Add Manufacturer</button>
 </form>
+
+
 
 
 
