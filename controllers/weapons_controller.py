@@ -35,7 +35,7 @@ def new_weapon():
 @weapons_blueprint.route("/weapons", methods=["POST"])
 def create_weapon():
     name = request.form["name"]
-    manufacturer = request.form["manufacturer"]
+    # manufacturer = request.form["manufacturer"]
     description = request.form["description"]
     weight = request.form["weight"]
     material = request.form["material"]
@@ -45,7 +45,7 @@ def create_weapon():
     manufacturer_id = request.form["manufacturer_id"]
 
     manufacturer = manufacturer_repository.select(manufacturer_id)
-    weapon = Weapon(name, manufacturer, description, weight, material, cost_to_buy, cost_to_sell, quantity, manufacturer)
+    weapon = Weapon(name, manufacturer, description, weight, material, cost_to_buy, cost_to_sell, quantity)
 
     weapon_repository.save(weapon)
     return redirect('/weapons')

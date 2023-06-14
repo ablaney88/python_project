@@ -1,0 +1,7 @@
+body {
+    background-color: white;
+}
+
+body > header {
+    background-color: black;
+}
