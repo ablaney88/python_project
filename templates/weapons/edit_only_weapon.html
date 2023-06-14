@@ -20,7 +20,7 @@
 
     <div>
         <label for="material">Material:</label>
-        <input type="number" id="material" name="material" value="{{weapon.material}}" required>
+        <input type="text" id="material" name="material" value="{{weapon.material}}" required>
       </div>
 
       <div>
@@ -36,6 +36,14 @@
       <div>
         <label for="quantity">Quantity:</label>
         <input type="number" id="quantity" name="quantity" value="{{weapon.quantity}}" required>
+      </div>
+
+      <div>
+        <label for="manufacturer_id">Manufacturer ID:</label>
+        <select name="manufacturer_id">
+          <option value="{{weapon.manufacturer.id}}">{{weapon.manufacturer.name}}</option>
+        </select>
+        <!-- <input type="text" name="manufacturer_id" > -->
       </div>
 
   

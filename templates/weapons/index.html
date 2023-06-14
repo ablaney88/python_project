@@ -8,12 +8,12 @@
     <div>
        {{weapon.manufacturer.name}}
        <form class="edit-form" action="/manufacturers/{{ weapon.manufacturer.id }}/edit" method="GET">
-        <button type="button">Edit Manufacturer</button>
+        <button type="submit">Edit Manufacturer</button>
       </form>
       <div>
         <p>{{weapon.name}}</p>
         <form class="edit-form" action="/weapons/{{ weapon.id }}/edit_only_weapon" method="GET">
-          <button type="button">Edit Weapon</button>
+          <button type="submit">Edit Weapon</button>
         </form>
         <p>{{weapon.description}}</p>
         <p>{{weapon.weight}}kg</p>
@@ -25,7 +25,7 @@
       <div class="buttons">
 
         <form class="delete-form" action="/weapons/{{ weapon.id }}/delete" method="POST">
-            <button type="button">Delete</button>
+            <button type="submit">Delete</button>
         </form>
         <form class="edit-form" action="/weapons/{{ weapon.id }}/edit" method="GET">
           <button type="button">Edit All</button>

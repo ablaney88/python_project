@@ -17,6 +17,7 @@ def manufacturers():
 
 @manufacturers_blueprint.route("/manufacturers/<id>/edit", methods=['GET'])
 def edit_manufacturer(id):
+    print("here")
     manufacturer = manufacturer_repository.select(id)
     manufacturers = manufacturer_repository.select_all()
     return render_template('manufacturers/edit.html', manufacturer = manufacturer, all_manufacturers = manufacturers)
@@ -40,9 +41,9 @@ def create_manufacturer():
 def update_manufacturer(id):
     name = request.form["name"]
     description = request.form["description"]
-    year_founded = request.form["year founded"]
+    year_founded = request.form["year_founded"]
  
-    manufacturer = Manufacturer(name, description, year_founded)
+    manufacturer = Manufacturer(name, description, year_founded, id)
 
     manufacturer_repository.update(manufacturer)
     return redirect('/manufacturers')

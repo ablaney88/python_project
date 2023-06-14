@@ -67,8 +67,8 @@ def delete(id):
     run_sql(sql, values)
 
 def update(weapon):
-    sql = "UPDATE weapons SET (name, description, weight, material, cost_to_buy, cost_to_sell, quantity, manufacturer_id) = (%s, %s, %s, %s, %s, %s, %s) WHERE id = %s"
-    values = [weapon.name, weapon.description, weapon.weight, weapon.material, weapon.cost_to_buy, weapon.cost_to_sell, weapon.quantity, weapon.manufacturer.id]
+    sql = "UPDATE weapons SET (name, description, weight, material, cost_to_buy, cost_to_sell, quantity, manufacturer_id) = (%s, %s, %s, %s, %s, %s, %s, %s) WHERE id = %s"
+    values = [weapon.name, weapon.description, weapon.weight, weapon.material, weapon.cost_to_buy, weapon.cost_to_sell, weapon.quantity, weapon.manufacturer.id, weapon.id]
     run_sql(sql, values)
 
 def weapons_from_manufacturer(manufacturer):

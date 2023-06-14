@@ -79,7 +79,7 @@ def update_weapon(id):
     manufacturer_id = request.form["manufacturer_id"]
 
     manufacturer = manufacturer_repository.select(manufacturer_id)
-    weapon = Weapon(name, description, weight, material, cost_to_buy, cost_to_sell, quantity, manufacturer, id)
+    weapon = Weapon(name, manufacturer, description, weight, material, cost_to_buy, cost_to_sell, quantity, id)
 
     weapon_repository.update(weapon)
     return redirect('/weapons')
