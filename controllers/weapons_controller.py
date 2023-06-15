@@ -35,7 +35,6 @@ def new_weapon():
 @weapons_blueprint.route("/weapons", methods=["POST"])
 def create_weapon():
     name = request.form["name"]
-    # manufacturer = request.form["manufacturer"]
     description = request.form["description"]
     weight = request.form["weight"]
     material = request.form["material"]
